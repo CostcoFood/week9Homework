@@ -2,7 +2,7 @@ class Card {
     constructor(suit, rank) {
         this.suit = suit;
         this.rank = rank;
-        this.value = this.assignValue(rank);
+        this.value = this.assignValue(rank); //giving cards a value for the game
     }
 
     assignValue(rank) {
@@ -16,7 +16,7 @@ class Card {
             case 'Ace':
                 return 14;
             default:
-                return parseInt(rank);
+                return parseInt(rank); //Makes sure rank is parsed as integer for numeric ranks
         }
     }
 
@@ -58,7 +58,7 @@ class Player {
     constructor(name) {
         this.name = name;
         this.hand = [];
-        this.score = 0;
+        this.score = 0; // sets score to 0
     }
 
     addCards(newCards) {
@@ -78,7 +78,7 @@ class Player {
     }
 
     toString() {
-        return `${this.name} has ${this.hand.length} cards and ${this.score} points.`;
+        return `${this.name} has ${this.hand.length} cards and ${this.score} points.`; // sets correct score display
     }
 }
 
@@ -106,7 +106,7 @@ class Game {
         console.log(`${this.player2.name} plays ${card2.toString()}`);
 
         if (card1.value > card2.value) {
-            this.player1.score++;
+            this.player1.score++; //increments score correctly
             console.log(`${this.player1.name} wins the round`);
         } else if (card1.value < card2.value) {
             this.player2.score++;
@@ -128,7 +128,7 @@ class Game {
         }
 
         console.log("Game Over!");
-        console.log(`${this.player1.name}'s score: ${this.player1.score}`);
+        console.log(`${this.player1.name}'s score: ${this.player1.score}`); // prints players score
         console.log(`${this.player2.name}'s score: ${this.player2.score}`);
         if (this.player1.score > this.player2.score) {
             console.log(`${this.player1.name} wins the game!`);
